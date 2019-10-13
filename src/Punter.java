@@ -82,7 +82,7 @@ public class Punter {
         if (state.equals(State.BETTING)) {
             balance = balance + currentBet;
             currentBet = 0;
-            state = State.NOT_BETTING;
+            state = State.RECEIVING_WINNINGS;
         }
     }
 
