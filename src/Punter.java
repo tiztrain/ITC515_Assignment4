@@ -71,7 +71,6 @@ public class Punter {
 		    throw new IllegalArgumentException("Placing bet would go below limit.");
 		}
         if (state.equals(State.NOT_BETTING)) {
-            balance = balance - bet;
             currentBet = bet;
             state = State.BETTING;
         }
