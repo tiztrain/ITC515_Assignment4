@@ -3,11 +3,13 @@ import java.util.Scanner;
 
 public class BatchModeGame {
     
-    
     static Scanner console = new Scanner(System.in);
     
     public static void play(Punter punter, List<Die> dice) {
         System.out.println("\nplayBatchMode"); 
+        
+        double roundsWon = 0.0;
+        double roundsLost = 0.0;
         
         int initialBalance = punter.getBalance();
         
@@ -76,14 +78,18 @@ public class BatchModeGame {
             if (winnings > 0) {
                 System.out.println(String.format("\n%s won %d, balance now %d\n\n",
                         punter.getName(), winnings, punter.getBalance()));
+                roundsWon = roundsWon + 1;
             }
             else {
                 System.out.println(String.format("\n%s lost %d, balance now %d\n\n",
                         punter.getName(), stdBet, punter.getBalance()));
+                roundsLost = roundsLost + 1;
             }
         }
         System.out.println(String.format("Player leaves game with $%d after %d rounds, having started with $%d", 
                 punter.getBalance(), roundCount, initialBalance));
+        double ratio = roundsWon/(roundsLost+roundsWon);
+        System.out.println("Win ration is sitting at: " + ratio);
         
     }
 

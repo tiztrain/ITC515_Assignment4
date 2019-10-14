@@ -2,3 +2,5 @@
 .DS_store
 .project
 /bin/
+~$*
+*.tmp

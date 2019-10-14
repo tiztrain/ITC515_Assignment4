@@ -58,7 +58,11 @@ public class Punter {
 	
 	
 	public boolean balanceExceedsLimitBy(int amount) {
-		return (balance - amount > limit);
+		boolean result = false;
+		if(balance - amount >= limit) {
+			result = true;
+		}
+		return result;
 	}
 
 	
