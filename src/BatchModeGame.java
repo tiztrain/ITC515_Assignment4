@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -65,6 +66,7 @@ public class BatchModeGame {
         while (roundCount != numberOfGames && punter.balanceExceedsLimitBy(stdBet)) {
             if (!useStandardPick) {
                 pick = Face.getRandom();
+                
             }
             System.out.println(String.format("\n%s bets %d on %s, starting with balance $%d", 
                         punter.getName(), stdBet, pick, punter.getBalance()));
@@ -85,11 +87,21 @@ public class BatchModeGame {
                         punter.getName(), stdBet, punter.getBalance()));
                 roundsLost = roundsLost + 1;
             }
+            
+            // added test
+            int i = 0;
+            Face rolledResult = null;
+    		for (Die d : dice) {
+    		    rolledResult = Face.getRandom();
+    		    dice.set(i, d).setFace(rolledResult);
+    		    i++;
+    		}
+            
         }
         System.out.println(String.format("Player leaves game with $%d after %d rounds, having started with $%d", 
                 punter.getBalance(), roundCount, initialBalance));
         double ratio = roundsWon/(roundsLost+roundsWon);
-        System.out.println("Win ration is sitting at: " + ratio);
+        System.out.println("Win ratio is sitting at: " + ratio);
         
     }
 

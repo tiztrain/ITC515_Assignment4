@@ -13,6 +13,10 @@ public class Die {
 		return face;
 	}
 
+	//added
+	public void setFace(Face face) {
+		this.face = face;
+	}
 	
 	
 	public Face roll() {

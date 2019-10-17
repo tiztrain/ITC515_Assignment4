@@ -18,11 +18,12 @@ public class Round {
         
 		int matches = 0;
 		for (Die d : dice) {
-		    d.roll();
-			if (d.getFace().equals(pick)) { 
+		    //d.roll();
+			if (d.roll().equals(pick)) { 
 				matches += 1;
 			}
 		}
+			
 		int winnings = matches * bet;
 
 		if (matches > 0) {	

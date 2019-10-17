@@ -8,7 +8,7 @@ public enum Face {
     GOURD("Gourd"), 
     STAG("Stag");
 
-    
+	//private static Random random = new Random();
     private static Random random = new Random();
     
     private final String name;
@@ -31,10 +31,10 @@ public enum Face {
     
     public static Face getRandom() {
         Face[] faces = Face.values();
-        int len = faces.length - 1;
+        int len = faces.length;
         int rand = random.nextInt(len);
-        int index = rand % len ;
-        Face face = faces[index];
+        //int index = rand % len ;
+        Face face = faces[rand];
         return face;
     }
 
